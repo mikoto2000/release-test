@@ -1,0 +1,15 @@
+on:
+  push:
+    tags: [ "v*" ]
+
+jobs:
+  release:
+    runs-on: windows-2022
+    steps:
+    - name: Get tag name
+      run: |
+        $tagName = "${{ github.ref }}".Split("/")[2]
+        Write-Output "TAG_NAME=$tagName" | Out-File -Append -Encoding ascii $env:GITHUB_ENV
+    - name: Use tag name
+      run: |
+        Write-Host $Env:TAG_NAME
