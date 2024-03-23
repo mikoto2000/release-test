@@ -9,6 +9,7 @@ jobs:
     - name: Get tag name
       run: |
         $tagName = "${{ github.ref }}".Split("/")[2]
+        Write-Host $tagName
         Write-Output "TAG_NAME=$tagName" | Out-File -Append -Encoding ascii $env:GITHUB_ENV
     - name: Use tag name
       run: |
