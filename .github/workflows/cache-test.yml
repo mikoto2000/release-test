@@ -1,0 +1,22 @@
+name: cache-test
+
+on:
+  push:
+    branches: [ "test" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Create ~/.mycache
+        run: mkdir -p ~/.mycache
+
+      - name: L ~/.mycache contents
+        run: ls ~/.mycache
+
+      - name: Run a one-line script
+        run: echo "Hello, World!" >> ~/.mycache
