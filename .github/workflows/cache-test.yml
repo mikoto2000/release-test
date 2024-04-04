@@ -19,4 +19,4 @@ jobs:
         run: ls ~/.mycache
 
       - name: Run a one-line script
-        run: echo "Hello, World!" >> ~/.mycache
+        run: echo "Hello, World!" >> ~/.mycache/mycontent1
