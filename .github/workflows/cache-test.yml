@@ -12,6 +12,11 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - name: Cache ~/.mycache
+        uses: actions/cache@v4
+        with:
+          path: ~/.mycache
+
       - name: Create ~/.mycache
         run: mkdir -p ~/.mycache
 
@@ -20,3 +25,5 @@ jobs:
 
       - name: Run a one-line script
         run: echo "Hello, World!" >> ~/.mycache/mycontent1
+
+
